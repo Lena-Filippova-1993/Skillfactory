@@ -6,9 +6,12 @@
 News
 {% endblock title %}
 
+
 {% block content %}
 {% if news %} <!--Проверка на наличие новостей-->
     <h1>Все новости</h1>
+    <h5>Количество новостей: {{ news|length }}</h5>
+
     <table>
         <tr>
             <td>Заголовок </td>
