@@ -3,7 +3,6 @@
 {% load custom_filters %}
 {% load custom_tags %}
 
-
 {% block title %}
 News
 {% endblock title %}
@@ -13,7 +12,12 @@ News
 {% if news %} <!--Проверка на наличие новостей-->
     <h1>Все новости</h1>
     <h5>Количество новостей: {{ news|length }}</h5>
-
+    <form action="" method="get">
+       {# Переменная, которую мы передали через контекст, может сгенерировать нам форму с полями #}
+       {{ filterset.form.as_p }}
+       {# Добавим кнопку отправки данных формы #}
+       <input type="submit" value="Найти" />
+   </form>
     <table>
         <tr>
             <td>id</td>
