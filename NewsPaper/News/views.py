@@ -48,6 +48,10 @@ class NewEdit(UpdateView):
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
+    def form_valid(self, form):
+        Post = form.save(commit=False)
+        Post.categoryType = 'NV'
+        return super().form_valid(form)
 
 class NewDelete(DeleteView):
     model = Post
@@ -67,6 +71,10 @@ class ArticleEdit(UpdateView):
     form_class = PostForm
     model = Post
     template_name = 'post_edit.html'
+    def form_valid(self, form):
+        Post = form.save(commit=False)
+        Post.categoryType = 'AR'
+        return super().form_valid(form)
 
 class ArticleDelete(DeleteView):
     model = Post
